@@ -2,6 +2,7 @@ package jp.neechan.akari.plugin
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.TaskAction
 import java.io.File
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -11,7 +12,7 @@ open class LogDependenciesTask : DefaultTask() {
     @Input
     var configuration: Collection<String> = mutableListOf()
 
-    @Input
+    @TaskAction
     fun createFileAndLogDependencies() {
         val dependenciesFile = getDependenciesFile()
         logDependencies(dependenciesFile)

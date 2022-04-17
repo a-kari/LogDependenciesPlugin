@@ -7,8 +7,8 @@ plugins {
     kotlin("jvm") version "1.6.20"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "jp.neechan.akari"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
