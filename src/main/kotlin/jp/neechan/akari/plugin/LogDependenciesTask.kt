@@ -35,16 +35,14 @@ open class LogDependenciesTask : DefaultTask() {
 
     private fun logDependencies(file: File) {
         file.writeText(getFormattedDateTime(), Charsets.UTF_8)
-        file.appendText("====Dependencies====\n", Charsets.UTF_8)
+        file.appendText("\n====Dependencies====\n", Charsets.UTF_8)
 
-        project.configurations.asMap.forEach {
-            if (it.key.contains("implementation")) {
-                it.value.dependencies.forEach { dependency ->
-                    file.appendText(
-                        "${dependency.group}:${dependency.name}:${dependency.version}\n",
-                        Charsets.UTF_8
-                    )
-                }
+        configuration.forEach {
+            project.configurations.getByName(it).dependencies.forEach { dependency ->
+                file.appendText(
+                    "${dependency.group}:${dependency.name}:${dependency.version}\n",
+                    Charsets.UTF_8
+                )
             }
         }
 
