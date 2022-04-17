@@ -25,3 +25,13 @@ tasks.test {
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+gradlePlugin {
+    plugins {
+        create("LogDependenciesPlugin") {
+            id = "jp.neechan.akari.LogDependenciesPlugin"
+            implementationClass = "jp.neechan.akari.plugin.LogDependenciesPlugin"
+            version = "1.0.0"
+        }
+    }
+}
