@@ -19,6 +19,12 @@ Including to a consumer project
 Project-level `build.gradle`:
 
 ```groovy
+repositories {
+    // Local Maven repository should take priority over the central one:
+    mavenLocal()
+    // ...
+}
+
 dependencies {
     classpath group: 'jp.neechan.akari', name: 'LogDependenciesPlugin', version: '1.0.0'
 }
